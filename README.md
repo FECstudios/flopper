@@ -1,135 +1,93 @@
 # Flopper
+**A physical study tracker that lives on your desk, not your phone.**
 
-> A distraction-free habit tracker you can hold in your hand.
+We built Flopper because we kept losing track of how long we actually studied vs. how long we *thought* we studied. It's a small 3D-printed device with an OLED screen, a rotary encoder, and an IMU sensor. Shake it to start a session, rotate the encoder to switch between modes (study, coding, break, etc.), and open a browser to see your stats on a dashboard the ESP32 hosts itself — no internet, no app, no account.
 
-**Flopper** is a physical productivity gadget that makes focus tracking tangible and fun. Shake it to start a session, turn the encoder to switch modes, and watch your study habits build up on a live web dashboard — all without touching your phone.
-
-Built by three 14-year-olds from Turkey who wanted a smarter, more satisfying way to track study time.
+Three 14-year-olds from Turkey made this. It fits in your palm.
 
 ---
 
 ## Gallery
 
-> 📸 Add your images here!
-
-```
 <img width="1530" height="2040" alt="WhatsApp Image 2026-06-07 at 21 51 37 (2)" src="https://github.com/user-attachments/assets/3692959e-49ab-4fb8-85d9-1a0f0a466c2a" />
 <img width="728" height="724" alt="Screenshot 2026-06-06 143729" src="https://github.com/user-attachments/assets/2f544b1e-6bd7-4126-8eb8-e83cceeff3e7" />
 <img width="584" height="575" alt="Screenshot 2026-06-10 132850" src="https://github.com/user-attachments/assets/8b9bfd99-fc73-4234-ace0-a1fbbda55781" />
 
-
 ---
 
-## Features
+## What it does
 
-- 🤙 **Shake to start** — tilt or shake the device to begin a session (via IMU)
-- 🔘 **Encoder click** — alternative way to start/stop without shaking
-- 🔄 **Mode switching** — rotate the encoder to pick an activity
-- ⏱️ **Automatic time tracking** — starts counting the moment you trigger it
-- 📊 **Live web dashboard** — hosted directly on the ESP32, no internet needed
-- 📡 **Wi-Fi** — connect from any device on the same network
-- 🔔 **Buzzer alarm** — alerts you when a session ends
-- 🔋 **Portable** — runs on a 1S LiPo battery
+- Shake the device (or click the encoder) → session starts
+- Rotate the encoder → switch activity mode
+- Timer runs, buzzer goes off when time's up → shake again to dismiss
+- Open `192.168.x.x` on any device on the same Wi-Fi → see your session history live
 
-### Activity modes
-
-| Mode | Icon |
-|------|------|
-| Study | 📖 |
-| Coding | 💻 |
-| Reading | 📚 |
-| Break | ☕ |
-| Exercise | 🏃 |
-| Free Time | 🎮 |
+### Modes
+Study · Coding · Reading · Break · Exercise · Free Time
 
 ---
 
 ## Hardware
 
-| Component | Purpose |
+| Component | What it's for |
 |---|---|
-| Seeed Studio XIAO ESP32-C6 | Main controller + Wi-Fi |
-| MPU6050 (GY-521) | Shake & tilt detection |
-| 1.3" SH1106 OLED Display | User interface |
-| Rotary encoder | Mode selection + click to start |
-| Buzzer | Session alarm |
-| 1S LiPo Battery | Portable power |
+| Seeed Studio XIAO ESP32-C6 | Runs everything, hosts the web server |
+| MPU6050 (GY-521) | Detects shakes and tilts |
+| 1.3" SH1106 OLED | Shows the current mode and timer |
+| Rotary encoder | Scroll through modes, click to start |
+| Buzzer | Alarm when session ends |
+| 1S LiPo | Battery power |
 
 ---
 
-## How It Works
+## How it works
 
-Flopper has two ways to interact with it:
+The MPU6050 constantly reads acceleration. When it detects a shake above a threshold, it starts the timer for whatever mode is selected. The rotary encoder lets you scroll through modes on the OLED before you start — or you can just click it instead of shaking if you want.
 
-### Starting a session
+When the session ends, the buzzer fires. Shake or click to stop it.
 
-**Option 1 — Shake it:**
-The MPU6050 IMU detects motion. Pick up Flopper and give it a shake or tilt — the session starts immediately and the OLED confirms the active mode.
-
-**Option 2 — Click the encoder:**
-Press the rotary encoder button. Same result, no motion needed.
-
-### Switching modes
-
-Rotate the encoder to scroll through activity modes shown on the OLED screen. The selected mode is highlighted before you start.
-
-### Session end & alarm
-
-When the timer runs out, the buzzer fires an alarm. Shake the device again (or click) to dismiss it.
-
-### Web dashboard
-
-Flopper hosts a live web server directly on the ESP32. No cloud, no app needed.
-
-1. Connect your phone or laptop to the **same Wi-Fi network** as Flopper
-2. Open a browser and go to the IP address shown on the OLED (e.g. `192.168.1.42`)
-3. See your session history, time per mode, and daily totals in real time
+The ESP32 runs a small web server over Wi-Fi. Once it connects to your network it shows its local IP on the OLED. Open that in a browser and you get a dashboard with your session history and time per mode.
 
 ---
 
-## Getting Started
+## Setup
 
-### What you need
-
-- Arduino IDE (2.x recommended)
-- ESP32 board package installed
+**You'll need:**
+- Arduino IDE 2.x
+- ESP32 board package
 - Libraries: `Adafruit SH110X`, `MPU6050_light`, `ESPAsyncWebServer`
 
-### Setup
-
-1. Clone this repo
-2. Open `flopper/flopper.ino` in Arduino IDE
-3. Edit the Wi-Fi credentials at the top of the file:
+**Steps:**
+1. Clone the repo
+2. Open `flopper/flopper.ino`
+3. Change the Wi-Fi credentials near the top:
    ```cpp
-   const char* ssid = "YOUR_WIFI_NAME";
-   const char* password = "YOUR_WIFI_PASSWORD";
+   const char* ssid = "YOUR_WIFI";
+   const char* password = "YOUR_PASSWORD";
    ```
-4. Select **XIAO ESP32-C6** as the board and flash
-5. The OLED will show the IP address once connected — open it in a browser
+4. Flash to XIAO ESP32-C6
+5. IP address shows on the OLED once it connects — open it in a browser
 
 ---
 
-## Why Flopper?
+## Why we made it
 
-Most productivity apps live on the same phone you're trying to avoid. Flopper is a physical object that sits on your desk. You pick it up, shake it, and you're working — no unlock screen, no notifications.
+We wanted something physical. Every productivity app we tried was on the same device we were trying to avoid. With Flopper you just pick it up and shake it — that's the whole interaction. No screen to unlock, no notifications to scroll past.
 
-The goal is simple:
-> Shake it. Start working.
-
-We also wanted to see how much you could fit into a small 3D-printed enclosure: a display, motion sensor, rotary input, Wi-Fi, and a battery — all in something that fits in your palm.
+Also we wanted to see if we could fit a display, motion sensor, encoder, Wi-Fi, and battery into something 3D-printed that actually looked decent.
 
 ---
 
-## Future Roadmap
+## Roadmap
 
-- [ ] User accounts
-- [ ] Daily streaks & achievement system  
+- [ ] Daily streaks
 - [ ] Pomodoro mode
-- [ ] Statistics and analytics graphs on dashboard
-- [ ] OTA firmware updates
+- [ ] Better analytics on the dashboard
+- [ ] OTA updates
+- [ ] Achievement system
 
 ---
 
 ## License
 
-This project is licensed under the [Apache License 2.0](LICENSE).
+[Apache 2.0](LICENSE)
