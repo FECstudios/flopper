@@ -1,6 +1,8 @@
 # Flopper
 **A physical study tracker that lives on your desk, not your phone.**
 
+<img width="397" height="609" alt="image" src="https://github.com/user-attachments/assets/7e26a6cb-287f-4ab8-ba36-4694bb92e77e" />
+
 We built Flopper because we kept losing track of how long we actually studied vs. how long we *thought* we studied. It's a small 3D-printed device with an OLED screen, a rotary encoder, and an IMU sensor. Shake it to start a session, rotate the encoder to switch between modes (study, coding, break, etc.), and open a browser to see your stats on a dashboard the ESP32 hosts itself — no internet, no app, no account.
 
 Three 14-year-olds from Turkey made this. It fits in your palm.
@@ -59,11 +61,11 @@ The ESP32 runs a small web server over Wi-Fi. Once it connects to your network i
 
 **Steps:**
 1. Clone the repo
-2. Open `flopper/flopper.ino`
-3. Change the Wi-Fi credentials near the top:
+2. Open `flopper/online.ino` or `flopper/offline.ino`
+3. Change the Wi-Fi credentials near the top if you prefer the online version:
    ```cpp
-   const char* ssid = "YOUR_WIFI";
-   const char* password = "YOUR_PASSWORD";
+      const char* ssid = "YOUR_SSID";             
+      const char* wifiPassword = "YOUR_PASSWORD"; 
    ```
 4. Flash to XIAO ESP32-C6
 5. IP address shows on the OLED once it connects — open it in a browser
