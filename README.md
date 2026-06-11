@@ -11,9 +11,22 @@ Three 14-year-olds from Turkey made this. It fits in your palm.
 
 ## Gallery
 
-<img width="1530" height="2040" alt="WhatsApp Image 2026-06-07 at 21 51 37 (2)" src="https://github.com/user-attachments/assets/3692959e-49ab-4fb8-85d9-1a0f0a466c2a" />
-<img width="728" height="724" alt="Screenshot 2026-06-06 143729" src="https://github.com/user-attachments/assets/2f544b1e-6bd7-4126-8eb8-e83cceeff3e7" />
-<img width="584" height="575" alt="Screenshot 2026-06-10 132850" src="https://github.com/user-attachments/assets/8b9bfd99-fc73-4234-ace0-a1fbbda55781" />
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/3692959e-49ab-4fb8-85d9-1a0f0a466c2a"
+       width="250"
+       height="250"
+       style="object-fit: cover;" />
+
+  <img src="https://github.com/user-attachments/assets/2f544b1e-6bd7-4126-8eb8-e83cceeff3e7"
+       width="250"
+       height="250"
+       style="object-fit: cover;" />
+
+  <img src="https://github.com/user-attachments/assets/8b9bfd99-fc73-4234-ace0-a1fbbda55781"
+       width="250"
+       height="250"
+       style="object-fit: cover;" />
+</p>
 
 ---
 
