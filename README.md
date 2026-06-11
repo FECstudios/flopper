@@ -12,20 +12,9 @@ Three 14-year-olds from Turkey made this. It fits in your palm.
 ## Gallery
 
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/3692959e-49ab-4fb8-85d9-1a0f0a466c2a"
-       width="250"
-       height="250"
-       style="object-fit: cover;" />
-
-  <img src="https://github.com/user-attachments/assets/2f544b1e-6bd7-4126-8eb8-e83cceeff3e7"
-       width="250"
-       height="250"
-       style="object-fit: cover;" />
-
-  <img src="https://github.com/user-attachments/assets/8b9bfd99-fc73-4234-ace0-a1fbbda55781"
-       width="250"
-       height="250"
-       style="object-fit: cover;" />
+  <img src="[FOTO1](https://github.com/user-attachments/assets/3692959e-49ab-4fb8-85d9-1a0f0a466c2a)" width="300" height="300">
+  <img src="[FOTO2](https://github.com/user-attachments/assets/2f544b1e-6bd7-4126-8eb8-e83cceeff3e7)" width="300" height="300">
+  <img src="[FOTO3](https://github.com/user-attachments/assets/8b9bfd99-fc73-4234-ace0-a1fbbda55781)" width="300" height="300">
 </p>
 
 ---
