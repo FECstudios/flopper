@@ -3,6 +3,8 @@
 
 <img width="397" height="609" alt="image" src="https://github.com/user-attachments/assets/7e26a6cb-287f-4ab8-ba36-4694bb92e77e" />
 
+🎥 Demo: https://youtu.be/VIDEO_ID
+
 We built Flopper because we kept losing track of how long we actually studied vs. how long we *thought* we studied. It's a small 3D-printed device with an OLED screen, a rotary encoder, and an IMU sensor. Shake it to start a session, rotate the encoder to switch between modes (study, coding, break, etc.), and open a browser to see your stats on a dashboard the ESP32 hosts itself — no internet, no app, no account.
 
 Three 14-year-olds from Turkey made this. It fits in your palm.
