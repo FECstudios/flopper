@@ -65,7 +65,7 @@ The ESP32 runs a small web server over Wi-Fi. Once it connects to your network i
 
 **Steps:**
 1. Clone the repo
-2. Open `flopper/online.ino` or `flopper/offline.ino`
+2. Open `flopper/codes/online.ino` or `flopper/codes/offline.ino`
 3. Change the Wi-Fi credentials near the top if you prefer the online version:
    ```cpp
       const char* ssid = "YOUR_SSID";             
@@ -87,7 +87,6 @@ Also we wanted to see if we could fit a display, motion sensor, encoder, Wi-Fi, 
 ## Roadmap
 
 - [ ] Daily streaks
-- [ ] Pomodoro mode
 - [ ] Better analytics on the dashboard
 - [ ] OTA updates
 - [ ] Achievement system
